@@ -67,9 +67,13 @@ const login = async (req, res) => {
       { expiresIn: '7d' }
     )
 
+    const userData = user.toObject()
+    delete userData.password
+
     res.status(200).json({
       message: 'Login successful',
-      token
+      token,
+      user: userData
     })
 
   } catch (error) {
