@@ -67,7 +67,7 @@ const getStreak = async (req, res) => {
 const getLeaderboard = async (req, res) => {
   try {
     const users = await User.find()
-      .select('name streak')
+      .select('name streak profileImage')
       .sort({ streak: -1 })
 
     res.status(200).json({ leaderboard: users })

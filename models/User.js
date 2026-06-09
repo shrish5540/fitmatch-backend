@@ -58,12 +58,8 @@ totalCheckIns: {
 checkIns: [{
   type: Date
 }],
-workoutPlan: {
-  type: String
-},
-dietPlan: {
-  type: String
-}
+workoutPlan: mongoose.Schema.Types.Mixed,
+dietPlan: mongoose.Schema.Types.Mixed
 }, { timestamps: true })
 
 const User = mongoose.model('User', userSchema)

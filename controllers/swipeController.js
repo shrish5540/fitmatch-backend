@@ -46,7 +46,7 @@ const getMatches = async (req, res) => {
     const userId = req.user._id
 
     const matches = await Match.find({ users: userId })
-      .populate('users', 'name email age gender location gymType goal fitnessLevel')
+      .populate('users', 'name email age gender location gymType goal fitnessLevel profileImage')
 
     res.status(200).json({ matches })
 
@@ -99,4 +99,6 @@ const getSuggestedUsers = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 }
+
+
 module.exports = { swipeUser, getMatches, getSuggestedUsers}
