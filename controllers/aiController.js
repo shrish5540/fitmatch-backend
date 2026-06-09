@@ -7,9 +7,9 @@ const getWorkoutPlan = async (req, res) => {
   try {
     const user = await User.findById(req.user._id)
 
-    // if (user.workoutPlan) {
-    //   return res.status(200).json({ workoutPlan: user.workoutPlan })
-    // }
+    if (user.workoutPlan) {
+      return res.status(200).json({ workoutPlan: user.workoutPlan })
+    }
 
 
     const prompt = `
